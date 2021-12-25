@@ -14,6 +14,7 @@ Role Variables
 | Variable name | Default | Description |
 |-----------------------|----------|-------------------------|
 | kibana_version | "7.14.0" | Параметр, который определяет какой версии kibana будет установлен |
+| elastic_host | "localhost | IP адрес хоста elasticsearch |
 
 Dependencies
 ------------
