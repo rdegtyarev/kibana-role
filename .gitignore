@@ -1,3 +1,5 @@
 .DS_Store
-files/*
+*/files/*
 meta/.galaxy_install_info
+*.rpm
+*.deb
