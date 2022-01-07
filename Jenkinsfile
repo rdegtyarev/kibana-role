@@ -16,6 +16,7 @@ pipeline {
         }
         stage('Run molecule') {
             steps {
+                sh 'cd ./kibana-role/'
                 sh 'molecule test'
             }
         }
