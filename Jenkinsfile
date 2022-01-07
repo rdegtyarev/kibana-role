@@ -12,5 +12,15 @@ pipeline {
                 sh 'molecule test'
             }
         }
+        stage('stage 2') {
+            steps {
+                sh 'echo Stage 2'
+            }
+        }
+        stage('stage 3') {
+            steps {
+                sh 'echo Stage 3'
+            }
+        }
     }
 }
