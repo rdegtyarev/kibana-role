@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Checkout git') {
             steps {
-                ws('kibana-role') {
+                dir('kibana-role') {
                     sh 'pwd'
                     git branch: 'test', credentialsId: '5560fca1-a24d-48f9-b9c2-0204f2cab035', url: 'git@github.com:rdegtyarev/kibana-role.git'
                 }
@@ -14,14 +14,18 @@ pipeline {
         }
         stage('Install requirements') {
             steps {
-                sh 'pwd'
-                sh 'pip install -r test-requirements.txt'
+                dir('kibana-role') {
+                    sh 'pwd'
+                    sh 'pip install -r test-requirements.txt'
+                }
             }
         }
         stage('Run molecule') {
             steps {
-                sh 'pwd'
-                sh 'molecule test'
+                dir('kibana-role') {
+                    sh 'pwd'
+                    sh 'molecule test'
+                }
             }
         }
         stage('Clean ws') {
