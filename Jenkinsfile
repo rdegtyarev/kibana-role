@@ -6,10 +6,10 @@ pipeline {
     stages {
         stage('Checkout git') {
             steps {
-                sh 'mkdir kibana-role'
-                sh 'cd ./kibana-role'
-                sh 'pwd'
-                git branch: 'test', credentialsId: '5560fca1-a24d-48f9-b9c2-0204f2cab035', url: 'git@github.com:rdegtyarev/kibana-role.git'
+                ws('kibana-role') {
+                    sh 'pwd'
+                    git branch: 'test', credentialsId: '5560fca1-a24d-48f9-b9c2-0204f2cab035', url: 'git@github.com:rdegtyarev/kibana-role.git'
+                }
             }
         }
         stage('Install requirements') {
