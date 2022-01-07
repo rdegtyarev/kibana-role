@@ -11,7 +11,6 @@ pipeline {
         }
         stage('Install requirements') {
             steps {
-                sh 'cd kibana-role'
                 sh 'pip install -r test-requirements.txt'
             }
         }
