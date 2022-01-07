@@ -13,12 +13,14 @@ pipeline {
         }
         stage('Install requirements') {
             steps {
-                sh 'pwd'
+
                 sh 'pip install -r test-requirements.txt'
             }
         }
         stage('Run molecule') {
             steps {
+                sh 'cd ./kibana-role'
+                sh 'pwd'
                 sh 'molecule test'
             }
         }
